@@ -1,0 +1,808 @@
+/* ============================================
+   NAVBAR WRAPPER & UTILITY BAR
+   ============================================ */
+
+.navbar-wrapper-container {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Top Utility Bar Styling */
+.top-utility-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.1rem 1rem;
+  background-color: #13095c;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.utility-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.support-badge {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.contact-link {
+  color: #e0e7ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: #f0f9ff;
+}
+
+.utility-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+/* Email Button - Desktop */
+.email-btn {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  display: block;
+}
+
+.email-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.email-btn:active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.email-btn:focus {
+  outline: 2px solid white;
+  outline-offset: 1px;
+}
+
+/* Social Icons Container - Direct Display (Desktop) */
+.social-icons-container {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.social-icon-link:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.social-icon-link:focus {
+  outline: 2px solid white;
+  outline-offset: 1px;
+}
+
+.social-icon-svg {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Social Icons - Hidden on Desktop */
+.mobile-social-icons {
+  display: none;
+}
+
+/* ============================================
+   MAIN NAVBAR STYLING
+   ============================================ */
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.50rem 1.0rem;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Brand Logo & Heading */
+.navbar-brand-block {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  user-select: none;
+  min-width: fit-content;
+  flex-shrink: 0;
+}
+
+.navbar-brand-block:hover {
+  opacity: 0.8;
+}
+
+.navbar-brand-block:focus {
+  outline: 2px solid #f45b8c;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.brand-logo-circle {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #f45b8c, #e91e63);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(244, 91, 140, 0.3);
+  flex-shrink: 0;
+}
+
+.navbar-heading {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+.span-l {
+  color: #f45b8c;
+  font-weight: 800;
+}
+
+/* Navigation Links - Desktop Only */
+.navbar-un {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.25rem;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .navbar-un {
+    display: flex;
+  }
+}
+
+.line {
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #475569;
+  transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 2px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #f45b8c, #e91e63);
+  transition: width 0.2s ease;
+}
+
+.line:hover {
+  color: #f45b8c;
+}
+
+.line:hover::after {
+  width: 100%;
+}
+
+.line:focus {
+  outline: none;
+  color: #f45b8c;
+}
+
+.line:focus::after {
+  width: 100%;
+}
+
+/* Mobile Social Icons & Buttons (Hidden on Desktop) */
+.mobile-social-icons,
+.mobile-buttons {
+  display: none;
+}
+
+/* Desktop Buttons */
+.btn-container {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.client-login-btn,
+.login-btn,
+.Register-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  border: 2px solid;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.client-login-btn {
+  background-color: #fff;
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+.client-login-btn:hover {
+  background-color: #f0f9ff;
+}
+
+.client-login-btn:focus {
+  outline: 1px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.login-btn {
+  background-color: #fff;
+  color: #f45b8c;
+  border-color: #f45b8c;
+}
+
+.login-btn:hover {
+  background-color: #fff5f8;
+}
+
+.login-btn:focus {
+  outline: 1px solid #f45b8c;
+  outline-offset: 2px;
+}
+
+.Register-btn {
+  background: linear-gradient(135deg, #f45b8c, #e91e63);
+  color: white;
+  border-color: transparent;
+}
+
+.Register-btn:hover {
+  opacity: 0.9;
+}
+
+.Register-btn:focus {
+  outline: 2px solid #f45b8c;
+  outline-offset: 1px;
+}
+
+@media (max-width: 1100px) {
+  .btn-container .client-login-btn {
+    display: none;
+  }
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.mobile-menu-toggle span {
+  width: 22px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  display: block;
+}
+
+.mobile-menu-toggle:focus {
+  outline: 2px solid #f45b8c;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ============================================
+   TABLET RESPONSIVE DESIGN (768px - 1024px)
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 0.75rem 1.2rem;
+    gap: 0.8rem;
+  }
+
+  .navbar-un {
+    gap: 1rem;
+  }
+
+  .line {
+    font-size: 0.85rem;
+  }
+
+  .btn-container {
+    gap: 0.3rem;
+  }
+
+  .client-login-btn,
+  .login-btn,
+  .Register-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  .top-utility-bar {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .utility-bar-left {
+    gap: 0.8rem;
+  }
+
+  .utility-bar-right {
+    gap: 0.6rem;
+  }
+
+  .email-btn {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .social-icon-link {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-icon-svg {
+    font-size: 13px;
+  }
+
+  .navbar-heading {
+    font-size: 1.2rem;
+  }
+
+  .brand-logo-circle {
+    width: 38px;
+    height: 38px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE DESIGN (max-width: 768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .navbar-wrapper-container {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  /* Top Utility Bar Mobile - Single Row */
+  .top-utility-bar {
+    flex-direction: row;
+    gap: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background: linear-gradient(90deg, #1e3a8a, #2563eb);
+  }
+
+  .utility-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #1e3a8a;
+    flex-wrap: nowrap;
+  }
+
+  .support-badge {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.6rem;
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  .contact-link {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .utility-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0.5rem 0;
+    background: #2563eb;
+    width: 100%;
+  }
+
+  .email-btn {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 0;
+    text-align: left;
+  }
+
+  .email-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Social Icons - Mobile Hidden */
+  .social-icons-container {
+    display: none;
+  }
+
+  /* Navbar Container Mobile */
+  .navbar-container {
+    padding: 0.6rem 1rem;
+    gap: 0.8rem;
+  }
+
+  .navbar-heading {
+    font-size: 1.1rem;
+  }
+
+  .brand-logo-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.75rem;
+  }
+
+  /* Navigation Links Mobile */
+  .navbar-un {
+    display: none;
+    gap: 0;
+    padding: 1rem 0;
+    list-style: none;
+  }
+
+  .navbar-un.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top: 2px solid #e2e8f0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    padding: 0.8rem 0;
+    width: 100%;
+  }
+
+  .line {
+    padding: 0.75rem 1.25rem;
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+  }
+
+  .line::after {
+    display: none;
+  }
+
+  .line:hover {
+    background-color: #f8fafc;
+    color: #f45b8c;
+  }
+
+  /* Mobile Social Icons Only */
+  .mobile-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1rem;
+    width: 100%;
+  }
+
+  .mobile-social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f45b8c;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    border: none;
+  }
+
+  .mobile-social-icons a:hover {
+    background: linear-gradient(135deg, #f45b8c, #e91e63);
+  }
+
+  .mobile-social-icons a:focus {
+    outline: 2px solid #f45b8c;
+    outline-offset: 2px;
+  }
+
+  .mobile-social-icon-svg {
+    font-size: 16px;
+  }
+
+  /* Mobile Buttons */
+  .mobile-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem 1.25rem 0;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .mobile-login-btn,
+  .mobile-staff-btn,
+  .mobile-register-btn {
+    padding: 0.65rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    border: 2px solid;
+    font-size: 0.85rem;
+    text-align: center;
+    display: block;
+  }
+
+  .mobile-login-btn {
+    background-color: #f0f0f0;
+    color: #333;
+    border-color: #f0f0f0;
+  }
+
+  .mobile-login-btn:active {
+    background-color: #e0e0e0;
+  }
+
+  .mobile-staff-btn {
+    background-color: #2563eb;
+    color: white;
+    border-color: #2563eb;
+  }
+
+  .mobile-staff-btn:active {
+    opacity: 0.9;
+  }
+
+  .mobile-register-btn {
+    background: linear-gradient(135deg, #f45b8c, #e91e63);
+    color: white;
+    border-color: transparent;
+  }
+
+  .mobile-register-btn:active {
+    opacity: 0.9;
+  }
+
+  /* Hide Desktop Elements */
+  .btn-container {
+    display: none;
+  }
+
+  /* Show Mobile Menu Toggle */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE DEVICES (max-width: 480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+  .navbar-wrapper-container {
+    width: 100%;
+  }
+
+  /* Top Utility Bar Small Mobile - Single Row */
+  .top-utility-bar {
+    grid-template-columns: auto 1fr;
+    gap: 0;
+  }
+
+  .utility-bar-left {
+    padding: 0.4rem 0.8rem;
+    gap: 0.3rem;
+  }
+
+  .support-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .contact-link {
+    font-size: 0.65rem;
+  }
+
+  .utility-bar-right {
+    padding: 0.4rem 0;
+  }
+
+  .email-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .navbar-container {
+    padding: 0.5rem 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .navbar-heading {
+    font-size: 1rem;
+  }
+
+  .brand-logo-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.7rem;
+  }
+
+  .mobile-social-icons {
+    gap: 0.6rem;
+    padding-top: 0.8rem;
+  }
+
+  .mobile-social-icons a {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mobile-social-icon-svg {
+    font-size: 14px;
+  }
+
+  .line {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .mobile-buttons {
+    padding: 0.8rem 1rem 0;
+  }
+
+  .mobile-login-btn,
+  .mobile-staff-btn,
+  .mobile-register-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY & KEYBOARD NAVIGATION
+   ============================================ */
+
+*:focus-visible {
+  outline: 2px solid #f45b8c;
+  outline-offset: 2px;
+}
+
+button:active,
+a:active {
+  transition: none;
+}
+/* BEFORE */
+.top-utility-bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0;
+}
+
+.utility-bar-left {
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.email-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+}
+
+/* AFTER */
+.top-utility-bar {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.utility-bar-left {
+  gap: 0.4rem;  /* Reduced gap */
+  padding: 0.5rem 0.8rem;  /* Reduced padding */
+  white-space: nowrap;
+}
+
+.email-btn {
+  background-color: transparent;  /* Removed background */
+  border: none;
+  color: white;  /* Text color */
+}
+
+.email-btn:hover {
+  background-color: transparent;
+  opacity: 0.9;
+}
